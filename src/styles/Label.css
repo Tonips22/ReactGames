@@ -1,0 +1,32 @@
+.label-component{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    
+    cursor: pointer;
+
+    min-width: 150px;
+
+    padding: 5px 10px;
+    border-radius: 10px;
+    
+    color: var(--white);
+    
+    background-color: #24242461;
+    backdrop-filter: blur(15px);
+    box-shadow: 0px 0px 2px 0px var(--react);
+
+    transition: box-shadow .3s ease;
+}
+
+.label-component:hover{
+    box-shadow: 0px 0px 10px 0px var(--react);
+
+}
+
+.label-component img{
+    max-width: 24px;
+    fill: var(--react);
+}
