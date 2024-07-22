@@ -1,0 +1,54 @@
+:root {
+  color-scheme: light dark;
+  --bg: #242424;
+  --dark: #2a2a2a;
+  --white: #f5f5f5;
+  --primary-font: 'Nunito Variable', sans-serif;
+  --secondary-font: 'Syne Variable', sans-serif;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* { margin: 0; padding: 0; }
+*, *::before, *::after { box-sizing: border-box; }
+html { font-size: 16px; scroll-behavior: smooth; scrollbar-width: none;}
+body {
+  background-color: var(--bg);
+  color: var(--white);	
+  font-family: var(--primary-font);
+  min-height: 100vh;
+}
+
+input, button, textarea, select { font: inherit; }
+p { text-wrap: pretty; overflow-wrap: break-word; }
+h1, h2, h3, h4, h5, h6 { text-wrap: balance; overflow-wrap: break-word; }
+h1{ font-family: var(--secondary-font); font-size: 3.2rem; }
+img, video, svg { max-width: 100%; height: auto; }
+a { text-decoration: none; color: inherit; }
+ul, ol { list-style: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  * { 
+    animation-duration: 0.01ms !important; 
+    animation-iteration-count: 1 !important; 
+    transition-duration: 0.01ms !important; 
+    scroll-behavior: auto !important;
+    transition: none; 
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  body {
+    color: var(--bg);
+    background-color: var(--white);
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
