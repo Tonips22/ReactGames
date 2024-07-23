@@ -1,0 +1,40 @@
+.header{
+    position: sticky;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    
+    padding: 1rem 2rem;
+    background-color: var(--dark);
+
+    z-index: 999;
+}
+
+.logo{
+    font-size: 1rem;
+}
+
+.logo span{
+    color: var(--react);
+    font-size: 2rem;
+}
+
+.header-navbar{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    font-family: var(--secondary-font);
+}
+
+.header-navbar a{
+    position: relative;
+    transition: color .3s ease ;
+}
+
+.header-navbar a:hover{
+    color: var(--react);
+}
