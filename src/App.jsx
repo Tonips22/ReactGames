@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import './styles/App.css'
 import Header from './components/Header.jsx'
+import GameCard from './components/GameCard.jsx'
 import Label from './components/Label.jsx'
 import Footer from './components/Footer.jsx'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -20,6 +21,36 @@ function App() {
           <FontAwesomeIcon icon={faGithub} />
         </Label>
       </a>
+    </section>
+
+    <section className='games'>
+      <GameCard link="https://github.com/Tonips22/ReactGames">
+        Tic Tac Toe
+      </GameCard>
+
+      <GameCard link="https://github.com/Tonips22/ReactGames">
+        Snake
+      </GameCard>
+
+      <GameCard link="https://github.com/Tonips22/ReactGames">
+        Typing Game
+      </GameCard>
+
+      <GameCard link="https://github.com/Tonips22/ReactGames">
+        Rock, Paper, Scissors
+      </GameCard>
+
+      <GameCard link="https://github.com/Tonips22/ReactGames">
+        Hangman
+      </GameCard>
+
+      <GameCard link="https://github.com/Tonips22/ReactGames">
+        Memory Match
+      </GameCard>
+
+      <GameCard link="https://github.com/Tonips22/ReactGames">
+        Simon Says
+      </GameCard>
     </section>
 
     <Footer></Footer>
