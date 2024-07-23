@@ -23,7 +23,7 @@ function App() {
       </a>
     </section>
 
-    <section className='games'>
+    <section className='games' id='games'>
       <GameCard link="https://github.com/Tonips22/ReactGames">
         Tic Tac Toe
       </GameCard>
