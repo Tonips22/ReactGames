@@ -2,6 +2,7 @@ import { useState } from 'react'
 import './styles/App.css'
 import Header from './components/Header.jsx'
 import Label from './components/Label.jsx'
+import Footer from './components/Footer.jsx'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
 
@@ -21,6 +22,7 @@ function App() {
       </a>
     </section>
 
+    <Footer></Footer>
     </>
   )
 }
