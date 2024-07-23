@@ -1,4 +1,6 @@
+import Home from '../pages/Home';
 import '../styles/Header.css'
+import { Link } from 'react-router-dom';
 function Header(){
     function scrollToBegining(){
         window.scrollTo(0, 0)
@@ -6,9 +8,9 @@ function Header(){
     
     return (
         <header className="header">
-            <a href="/">
+            <Link to='/'>
                 <h1 className="logo"><span>React.</span>Games</h1>
-            </a>
+            </Link>
 
             <nav className="header-navbar">
                 <a onClick={scrollToBegining}>Hero</a>
