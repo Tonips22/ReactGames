@@ -1,5 +1,9 @@
 import '../styles/Header.css'
 function Header(){
+    function scrollToBegining(){
+        window.scrollTo(0, 0)
+    }
+    
     return (
         <header className="header">
             <a href="/">
@@ -7,9 +11,8 @@ function Header(){
             </a>
 
             <nav className="header-navbar">
-                <a href="#">Home</a>
-                <a href="#">Games</a>
-                <a href="#">About</a>
+                <a onClick={scrollToBegining}>Hero</a>
+                <a href="#games">Games</a>
             </nav>
         </header>
     )
