@@ -14,9 +14,11 @@ function App() {
     <section className='hero'>
       <h1 className="hero-title">Simply web games made with <span className='hero-title-rainbow'>React</span></h1>
 
-      <Label text="Repository">
-        <FontAwesomeIcon icon={faGithub} />
-      </Label>
+      <a href="https://github.com/Tonips22/ReactGames" target='blank'>
+        <Label text="Repository">
+          <FontAwesomeIcon icon={faGithub} />
+        </Label>
+      </a>
     </section>
 
     </>
