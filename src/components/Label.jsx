@@ -1,10 +1,10 @@
 import '../styles/Label.css'
 
-function Label({ iconSRC, children }) {
+function Label({ text, children }) {
   return (
     <label className="label-component">
-        <img src={iconSRC} alt="icon" />
         {children}
+        {text}
     </label>
   )
 }
