@@ -1,6 +1,9 @@
 import '../styles/pages/TicTacToe.css'
 import Square from '../components/TicTacToe/Square'
 import { useState } from 'react'
+import confetti from 'canvas-confetti'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faShieldHalved } from '@fortawesome/free-solid-svg-icons'
 const TURNS = {
     X: '⛌',
     O: '◯'
@@ -32,11 +35,17 @@ function TicTacToe(){
         };
 
         // Check if there is a draw
-        if(board.every(square => square !== null)){
+        if(newBoard.every(square => square !== null)){
             return false;
         }
 
         return null;
+    }
+
+    const resetGame = () => {
+        setWinner(null)
+        setTurn(TURNS.X)
+        setBoard(Array(9).fill(null))
     }
 
 
@@ -55,8 +64,17 @@ function TicTacToe(){
 
         // Check winner
         const newWinner = checkWinner(newBoard);
+        console.log(newWinner)
         if(newWinner !== null){
             setWinner(newWinner);
+
+            if(newWinner !== false){
+                confetti({
+                    particleCount: 200,
+                    spread: 70,
+                    origin: { y: 0.6 },
+                  });
+            }
         }
         
     }
@@ -82,6 +100,32 @@ function TicTacToe(){
                 <Square isSelected={turn === TURNS.X}>{TURNS.X}</Square>
                 <Square isSelected={turn === TURNS.O}>{TURNS.O}</Square>
             </section>
+
+            {
+                (winner !== null) && (
+                    <section className="winner">
+                        <div className="winner-modal">
+                            <div className="winner-modal-content">
+                                {(winner !== false) ? (
+                                    <>
+                                        <h2>Player</h2>
+                                        <h1>{winner}</h1>
+                                        <h2>Wins!</h2>
+                                    </>
+                                ) : (
+                                    <>
+                                        <h2>Draw</h2>
+                                        <h1><FontAwesomeIcon icon={faShieldHalved} /></h1>
+                                        <h2>Try Again!</h2>
+                                    </>
+                                )}
+                            </div>
+
+                            <button className='winner-modal-button' onClick={resetGame}>Restart</button>
+                        </div>
+                    </section>
+                )
+            }
             
         </main>
     )
