@@ -17,9 +17,9 @@
 }
 
 .disable{
-    box-shadow: 0px 0px 2px 0px #f96060;
+    box-shadow: 0px 0px 2px 0px var(--red);
 }
 
 .disable:hover{
-    box-shadow: 0px 0px 10px 0px #f96060;
+    box-shadow: 0px 0px 10px 0px var(--red);
 }

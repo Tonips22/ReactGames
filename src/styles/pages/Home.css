@@ -53,8 +53,8 @@
         text-shadow: 0px 0px 10px #f8ff6b;
     }
     60%{
-        color: #ff776b;
-        text-shadow: 0px 0px 10px #ff776b;
+        color: var(--red);
+        text-shadow: 0px 0px 10px var(--red);
     }
     80%{
         color: #ff6bda;
