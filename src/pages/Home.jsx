@@ -22,27 +22,27 @@ function Home() {
           Tic Tac Toe
         </GameCard>
 
-        <GameCard link="/TicTacToe">
+        <GameCard link="/TicTacToe" active={false}>
           Snake
         </GameCard>
 
-        <GameCard link="/TicTacToe">
+        <GameCard link="/TicTacToe" active={false}>
           Typing Game
         </GameCard>
 
-        <GameCard link="/TicTacToe">
+        <GameCard link="/TicTacToe" active={false}>
           Rock, Paper, Scissors
         </GameCard>
 
-        <GameCard link="/TicTacToe">
+        <GameCard link="/TicTacToe" active={false}>
           Hangman
         </GameCard>
 
-        <GameCard link="/TicTacToe">
+        <GameCard link="/TicTacToe" active={false}>
           Memory Match
         </GameCard>
 
-        <GameCard link="/TicTacToe">
+        <GameCard link="/TicTacToe" active={false}>
           Simon Says
         </GameCard>
       </section>
