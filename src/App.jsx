@@ -5,6 +5,7 @@ import Header from './components/Header.jsx'
 import Footer from './components/Footer.jsx'
 import Home from './pages/Home.jsx'
 import TicTacToe from './pages/TicTacToe.jsx'
+import RockPaperScissors from './pages/RockPaperScissors.jsx';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/TicTacToe" element={<TicTacToe />} />
+        <Route path="/RockPaperScissors" element={<RockPaperScissors />} />
       </Routes>
       <Footer />
     </Router>
