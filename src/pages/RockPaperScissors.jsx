@@ -6,6 +6,7 @@ import { faHandScissors } from '@fortawesome/free-solid-svg-icons'
 import { faShieldHalved } from '@fortawesome/free-solid-svg-icons'
 import '../styles/pages/RockPaperScissors.css'
 
+const WINNING_SCORE = 9
 
 const MOVEMENTS = [
     {
@@ -21,11 +22,6 @@ const MOVEMENTS = [
     {
         name: "Scissors",
         icon: <FontAwesomeIcon icon={faHandScissors} />
-    },
-
-    {
-        name: "None",
-        icon: <FontAwesomeIcon icon={faShieldHalved} />
     }
 ]
 
@@ -34,14 +30,7 @@ const PLAYERS = {
     COMPUTER: "1"
 }
 
-const STATES = {
-    PLAYING: "0",
-    GAMEOVER: "1"
-}
-
-const WINNING_SCORE = 9
-
-const isPlayerMovementWin = (playerMovement, computerMovement) => {
+const isPlayerWinTurn = (playerMovement, computerMovement) => {
     if(playerMovement === computerMovement){
         return null
     }else if((playerMovement === "Rock" && computerMovement === "Scissors") || (playerMovement === "Paper" && computerMovement === "Rock") || (playerMovement === "Scissors" && computerMovement === "Paper")){
@@ -56,8 +45,9 @@ function RockPaperScissors(){
     const [score, setScore] = useState(Array(2).fill(0))
     const [movements, setMovements] = useState(Array(2).fill(null))
     const [winner, setWinner] = useState(false)
-    const playerHistory = []
-    const computerHistory = []
+    const [playerHistory, setPlayerHistory] = useState([])
+    const [computerHistory, setComputerHistory] = useState([])
+    const [lastTurnWinner, setLastTurnWinner] = useState(null)
 
     const updateScore = (playerMovement) => {
 
@@ -68,39 +58,64 @@ function RockPaperScissors(){
         const playerMovementName = playerMovement.name
 
         const newMovements = [playerMovement.icon, computerMovement.icon]
-        playerHistory.push(playerMovementName)
-        computerHistory.push(computerMovementName)
         setMovements(newMovements)
 
+        const newPlayerHistory = [...playerHistory]
+        const newComputerHistory = [...computerHistory]
+
+        newPlayerHistory.push(playerMovement.icon)
+        setPlayerHistory(newPlayerHistory)
+
+        newComputerHistory.push(computerMovement.icon)
+        setComputerHistory(newComputerHistory)
+
         // Update the score
-        if(isPlayerMovementWin(playerMovementName, computerMovementName)){
+        if(isPlayerWinTurn(playerMovementName, computerMovementName)){
             const newScore = [...score]
             newScore[PLAYERS.PLAYER]++
             setScore(newScore)
-        } else if(isPlayerMovementWin(computerMovementName, playerMovementName)){
+            setLastTurnWinner(PLAYERS.PLAYER)
+        } else if(isPlayerWinTurn(computerMovementName, playerMovementName)){
             const newScore = [...score]
             newScore[PLAYERS.COMPUTER]++
             setScore(newScore)
+            setLastTurnWinner(PLAYERS.COMPUTER)
+        }else{
+            setLastTurnWinner(null)
         }
 
         // Check if there is a winner
         if(score[PLAYERS.PLAYER] === WINNING_SCORE || score[PLAYERS.COMPUTER] === WINNING_SCORE){
-            setWinner(true)
+            checkWinner()
         }
 
+    }
+
+    const checkWinner = () => {
+        if(score[PLAYERS.PLAYER] === WINNING_SCORE){
+            setWinner("Player")
+        }else if(score[PLAYERS.COMPUTER] === WINNING_SCORE){
+            setWinner("Computer")
+
+        }
     }
 
     const resetGame = () => {
         setScore(Array(2).fill(0))
         setMovements(Array(2).fill(null))
         setWinner(false)
+        setPlayerHistory([])
+        setComputerHistory([])
+        setLastTurnWinner(null)
     }
     
     return(
         <main className='RPS'>
             <h1 className='RPS-title'>Rock, Paper, Scissors</h1>
 
-            <section className='RPS-info'>
+            <section className='RPS-info' style={{
+                border: lastTurnWinner === PLAYERS.PLAYER ? '2px solid var(--green)' : lastTurnWinner === PLAYERS.COMPUTER ? '2px solid var(--red)' : '2px solid var(--react)',
+            }}>
 
                 <div className="RPS-info-players">
                     <div className="RPS-info-players-player">
@@ -141,10 +156,78 @@ function RockPaperScissors(){
             </section>
 
             <section className='RPS-historial'>
+                <h2>Historial</h2>
+                <div className="RPS-historial-players">
+                    <div className="RPS-historial-players-player">
+                        <h3>Player</h3>
+                        <div className='RPS-historial-players-player-boxes'>
+                            {
+                                playerHistory.map((movement, index) => {
+                                    return (
+                                        <i className='RPS-historial-players-player-box' key={index}>{movement}</i>
+                                    )
+                                })
+                            }
+                        </div>
+                        
+                    </div>
+                    
+                    <div className="RPS-historial-players-player">
+                        <h3>Computer</h3>
+                        <div className='RPS-historial-players-player-boxes'>
+                            {
+                                computerHistory.map((movement, index) => {
+                                    return (
+                                        <i className='RPS-historial-players-player-box' key={index}>{movement}</i>
+                                    )
+                                })
+                            }
+                        </div>
+                    </div>
+                </div>
             </section>
 
             <section className='RPS-rules'>
             </section>
+
+                {
+                    (winner !== false) && (
+                        <section className="winner">
+                            <div className="RPS-winner-modal">
+                                <div className="RPS-winner-modal-content">
+                                    {(winner !== false) ? (
+                                        <>
+                                            <div className="RPS-winner-modal-content-score-header">
+                                                <h1>{winner}</h1>
+                                                <h2>Wins!</h2>
+
+                                            </div>
+                                            <div className="RPS-winner-modal-content-score">
+                                                <h3>Final Score</h3>
+                                                <p>{score[0]} - {score[1]}</p>
+                                            </div>
+                                            <div className="RPS-winner-modal-content-move">
+                                                <h3>Winner Movement</h3>
+                                                <p>{
+                                                    winner === "Player" ? playerHistory[playerHistory.length - 1] : computerHistory[computerHistory.length - 1]
+                                                    
+                                                }</p>
+                                            </div>
+                                        </>
+                                    ) : (
+                                        <>
+                                            <h2>Draw</h2>
+                                            <h1><FontAwesomeIcon icon={faShieldHalved} /></h1>
+                                            <h2>Try Again!</h2>
+                                        </>
+                                    )}
+                                </div>
+
+                                <button className='RPS-winner-modal-button' onClick={resetGame}>Restart</button>
+                            </div>
+                        </section>
+                    )
+                }
         </main>
     )
 }
