@@ -1,0 +1,124 @@
+/*Main*/
+.RPS{
+    display: flex;
+    flex-direction: column;
+    margin: 2rem 0;
+    padding: 0 2rem;
+    gap: 2rem;
+}
+
+.RPS-title{
+    text-align: center;
+    color: var(--react);
+}
+
+/*Info*/
+
+.RPS-info{
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem;
+
+    border: 2px solid var(--react);
+    border-radius: 1rem;
+    overflow: hidden;
+}
+
+.RPS-info-score{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    /* padding: 2rem; */
+}
+
+.RPS-info-score-puntuation{
+    color: var(--white);
+    font-size: 30rem;
+    /* margin-bottom: 12rem; */
+    opacity: .1;
+
+    /* font-family: var(--secondary-font); */
+    pointer-events: none;
+}
+
+
+.RPS-info-players{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 5rem;
+}
+
+.RPS-info-versus{
+    font-size: 5rem;
+    font-family: var(--secondary-font);
+}
+
+.RPS-info-players-player{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+
+
+.RPS-info-players-player h3{
+    text-transform: uppercase;
+}
+
+.RPS-info-players-player h2{
+    font-size: 15rem;
+}
+
+
+/*Movements*/
+
+.RPS-movements{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+}
+
+.RPS-movements-options{
+    display: flex;
+    gap: 2rem;
+}
+
+.RPS-movements-options-button{
+    width: 100%;
+    padding: 2rem;
+    border-radius: 1rem;
+    border: none;
+    outline: none;
+    cursor: pointer;
+
+    color: var(--white);
+    background-color: #24242461;
+    backdrop-filter: blur(15px);
+    box-shadow: 0px 0px 2px 0px var(--react);
+
+    transition: box-shadow .3s ease;
+}
+
+.RPS-movements-options-button:hover{
+    box-shadow: 0px 0px 10px 0px var(--react);
+
+}
+
+.RPS-movements-options-button i{
+    font-size: 3rem;
+}
