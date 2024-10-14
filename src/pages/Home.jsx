@@ -22,16 +22,16 @@ function Home() {
           Tic Tac Toe
         </GameCard>
 
+        <GameCard link="/RockPaperScissors" >
+          Rock, Paper, Scissors
+        </GameCard>
+
         <GameCard link="/TicTacToe" active={false}>
           Snake
         </GameCard>
 
         <GameCard link="/TicTacToe" active={false}>
           Typing Game
-        </GameCard>
-
-        <GameCard link="/TicTacToe" active={false}>
-          Rock, Paper, Scissors
         </GameCard>
 
         <GameCard link="/TicTacToe" active={false}>
