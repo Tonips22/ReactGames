@@ -75,14 +75,41 @@
     gap: 1rem;
 }
 
-
-
 .RPS-info-players-player h3{
     text-transform: uppercase;
 }
 
 .RPS-info-players-player h2{
     font-size: 15rem;
+}
+
+@media (width <= 768px) {
+    .RPS-info-score{
+        flex-direction: column;
+    }
+
+    .RPS-info-score-puntuation{
+        font-size: 10rem;
+    }
+
+    .RPS-info-players{
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .RPS-info-versus{
+        font-size: 2rem;
+    }
+
+    .RPS-info-players-player h3{
+        text-transform: uppercase;
+        font-size: 1rem;
+    }
+    
+    .RPS-info-players-player h2{
+        font-size: 5rem;
+    }
+
 }
 
 
@@ -127,6 +154,27 @@
 
 .RPS-movements-options-button i{
     font-size: 3rem;
+}
+
+@media (width <= 768px) {
+    .RPS-movements h2{
+        text-align: center;
+    }
+    
+    .RPS-movements-options{
+        display: flex;
+        gap: 1rem;
+    }
+    
+    .RPS-movements-options-button{
+        width: 75px;
+        padding: 1rem;
+        border-radius: 10px;
+    }
+    
+    .RPS-movements-options-button i{
+        font-size: 2rem;
+    }
 }
 
 /*Historial*/
