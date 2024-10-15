@@ -44,7 +44,7 @@ ul, ol { list-style: none; }
   }
 }
 
-@media (prefers-color-scheme: light) {
+/* @media (prefers-color-scheme: light) {
   body {
     color: var(--bg);
     background-color: var(--white);
@@ -55,4 +55,4 @@ ul, ol { list-style: none; }
   button {
     background-color: #f9f9f9;
   }
-}
+} */
