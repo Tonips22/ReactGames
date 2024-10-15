@@ -228,3 +228,31 @@
     background-color: var(--white);
     color: black;
 }
+
+
+/*Rules*/
+
+.RPS-rules{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.RPS-rules h2{
+    font-family: var(--secondary-font);
+}
+
+.RPS-rules-ul{
+    list-style-type: disc;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.RPS-rules-ul-secondary{
+    list-style-type: circle;
+    margin-left: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}

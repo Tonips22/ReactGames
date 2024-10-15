@@ -188,7 +188,23 @@ function RockPaperScissors(){
             </section>
 
             <section className='RPS-rules'>
+                <h2>Rules of the Game</h2>
+                <ul className='RPS-rules-ul'>
+                    <li>Each round, both the player and the computer will select one of three possible movements: Rock <i>{MOVEMENTS[0].icon}</i>, Paper <i>{MOVEMENTS[1].icon}</i>, or Scissors <i>{MOVEMENTS[2].icon}</i>.</li>
+                    <li>The winner of the round is determined as follows:
+                        <ul className='RPS-rules-ul-secondary'>
+                            <li><strong>Rock</strong> beats <strong>Scissors</strong> (Rock crushes Scissors).</li>
+                            <li><strong>Scissors</strong> beat <strong>Paper</strong> (Scissors cut Paper).</li>
+                            <li><strong>Paper</strong> beats <strong>Rock</strong> (Paper covers Rock).</li>
+                        </ul>
+                    </li>
+                    <li>If both the player and the computer choose the same movement, the round is a tie.</li>
+                    <li>The game continues until either the player or the computer reaches a score of 9 points.</li>
+                    <li>First to 9 points wins the game!</li>
+                    <li>If you want to restart the game at any time, click on the "Restart" button after a winner is declared.</li>
+                </ul>
             </section>
+
 
                 {
                     (winner !== false) && (
