@@ -70,34 +70,30 @@ function RockPaperScissors(){
         setComputerHistory(newComputerHistory)
 
         // Update the score
+        const newScore = [...score]
+
         if(isPlayerWinTurn(playerMovementName, computerMovementName)){
-            const newScore = [...score]
             newScore[PLAYERS.PLAYER]++
-            setScore(newScore)
             setLastTurnWinner(PLAYERS.PLAYER)
         } else if(isPlayerWinTurn(computerMovementName, playerMovementName)){
-            const newScore = [...score]
             newScore[PLAYERS.COMPUTER]++
-            setScore(newScore)
             setLastTurnWinner(PLAYERS.COMPUTER)
         }else{
             setLastTurnWinner(null)
         }
+        
+        setScore(newScore)
 
         // Check if there is a winner
-        if(score[PLAYERS.PLAYER] === WINNING_SCORE || score[PLAYERS.COMPUTER] === WINNING_SCORE){
-            checkWinner()
+        if(newScore[PLAYERS.PLAYER] === WINNING_SCORE || newScore[PLAYERS.COMPUTER] === WINNING_SCORE){
+            if(newScore[PLAYERS.PLAYER] === WINNING_SCORE){
+                setWinner("Player")
+            }else if(newScore[PLAYERS.COMPUTER] === WINNING_SCORE){
+                setWinner("Computer")
+    
+            }
         }
 
-    }
-
-    const checkWinner = () => {
-        if(score[PLAYERS.PLAYER] === WINNING_SCORE){
-            setWinner("Player")
-        }else if(score[PLAYERS.COMPUTER] === WINNING_SCORE){
-            setWinner("Computer")
-
-        }
     }
 
     const resetGame = () => {
