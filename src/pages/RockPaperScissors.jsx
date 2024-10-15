@@ -4,6 +4,7 @@ import { faHandBackFist } from '@fortawesome/free-solid-svg-icons'
 import { faHand } from '@fortawesome/free-solid-svg-icons'
 import { faHandScissors } from '@fortawesome/free-solid-svg-icons'
 import { faShieldHalved } from '@fortawesome/free-solid-svg-icons'
+import confetti from 'canvas-confetti'
 import '../styles/pages/RockPaperScissors.css'
 
 const WINNING_SCORE = 9
@@ -92,6 +93,12 @@ function RockPaperScissors(){
                 setWinner("Computer")
     
             }
+
+            confetti({
+                particleCount: 200,
+                spread: 70,
+                origin: { y: 0.6 },
+            });
         }
 
     }
