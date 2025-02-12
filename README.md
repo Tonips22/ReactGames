@@ -64,3 +64,5 @@ Start the server
 
 ## Screenshots
 
+![Captura de pantalla 2024-10-15 141023](https://github.com/user-attachments/assets/290af75c-670a-439b-8190-260581162078)
+
